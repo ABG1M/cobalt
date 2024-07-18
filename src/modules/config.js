@@ -66,5 +66,5 @@ export const
     links = config.links,
     sponsors = config.sponsors,
     mode = (apiURL && !webEnvs.webURL) ? 'API' :
-        (webEnvs.webURL && apiURL) ? 'WEB' : undefined,
-    env = mode === 'API' ? apiEnvs : webEnvs
+      (webEnvs.webURL && apiURL) ? 'WEB' : (webEnvs.webURL && !apiURL) ? "WEB_API" : undefined,
+    env = mode === 'API' ? apiEnvs : (mode === 'WEB' ? webEnvs : ((apiEnvs.apiURL = webEnvs.webURL) && (apiEnvs.apiPort = webEnvs.webPort) && {...webEnvs, ...apiEnvs}))

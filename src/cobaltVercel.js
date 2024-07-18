@@ -24,18 +24,21 @@ app.disable('x-powered-by');
 await loadLoc();
 
 if (mode === 'API') {
-  const { runAPI } = await import('./core/api.js');
-  runAPI(express, app, gitCommit, gitBranch, __dirname)
+    const { runAPI } = await import('./core/api.js');
+    runAPI(express, app, gitCommit, gitBranch, __dirname)
 } else if (mode === 'WEB') {
-  const { runWeb } = await import('./core/web.js');
-  await runWeb(express, app, gitCommit, gitBranch, __dirname)
+    const { runWeb } = await import('./core/web.js');
+    await runWeb(express, app, gitCommit, gitBranch, __dirname)
 } else if (mode === 'WEB_API') {
-  const { runWebWithApi } = await import('./core/webWithApi.js');
-  await runWebWithApi(express, app, gitCommit, gitBranch, __dirname)
+    const { runWebWithApi } = await import('./core/webWithApi.js');
+    await runWebWithApi(express, app, gitCommit, gitBranch, __dirname)
 } else {
-  console.log(
-    Red(`cobalt wasn't configured yet or configuration is invalid.\n`)
-    + Bright(`please run the setup script to fix this: `)
-    + Green(`npm run setup`)
-  )
+    console.log(
+        Red(`cobalt wasn't configured yet or configuration is invalid.\n`)
+        + Bright(`please run the setup script to fix this: `)
+        + Green(`npm run setup`)
+    )
 }
+
+export default app;
+

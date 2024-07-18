@@ -11,7 +11,7 @@ import {
     footerButtons,
     multiPagePopup,
     popup,
-    popupWithBottomButtons, 
+    popupWithBottomButtons,
     sep,
     settingsCategory,
     switcher,
@@ -264,46 +264,48 @@ export default function(obj) {
                         raw: true
                     }]
                 })
-            }, {
-                name: "donate",
-                title: `${emoji("💖")} ${t('DonationsTab')}`,
-                content: popup({
-                    name: "donate",
-                    header: {
-                        closeAria: t('AccessibilityGoBack'),
-                        title: emoji("💸", 30) + t('TitlePopupDonate')
-                    },
-                    body: [{
-                        text: `<div class="category-title">${t('DonateSub')}</div>`,
-                        raw: true
-                    }, {
-                        text: `
-                        <div class="changelog-banner">
-                            <img class="changelog-img" ` +
-                                `src="updateBanners/catsleep.webp" ` +
-                                `alt="${t("DonateImageDescription")}" ` +
-                                `width="480" ` +
-                                `height="270" ` +
-                                `onerror="this.style.opacity=0" loading="lazy">
-                        </div>`,
-                        raw: true
-                    }, {
-                        text: t('DonateExplanation')
-                    }, {
-                        text: donateLinks.replace(/REPLACEME/g, t('DonateVia')),
-                        raw: true
-                    }, {
-                        text: t('DonateLinksDescription'),
-                        classes: ["explanation"]
-                    }, {
-                        text: sep(),
-                        raw: true
-                    }, {
-                        text: donate.replace(/REPLACEME/g, t('ClickToCopy')),
-                        classes: ["desc-padding"]
-                    }]
-                })
-            }],
+            }, 
+            // {
+            //     name: "donate",
+            //     title: `${emoji("💖")} ${t('DonationsTab')}`,
+            //     content: popup({
+            //         name: "donate",
+            //         header: {
+            //             closeAria: t('AccessibilityGoBack'),
+            //             title: emoji("💸", 30) + t('TitlePopupDonate')
+            //         },
+            //         body: [{
+            //             text: `<div class="category-title">${t('DonateSub')}</div>`,
+            //             raw: true
+            //         }, {
+            //             text: `
+            //             <div class="changelog-banner">
+            //                 <img class="changelog-img" ` +
+            //                     `src="updateBanners/catsleep.webp" ` +
+            //                     `alt="${t("DonateImageDescription")}" ` +
+            //                     `width="480" ` +
+            //                     `height="270" ` +
+            //                     `onerror="this.style.opacity=0" loading="lazy">
+            //             </div>`,
+            //             raw: true
+            //         }, {
+            //             text: t('DonateExplanation')
+            //         }, {
+            //             text: donateLinks.replace(/REPLACEME/g, t('DonateVia')),
+            //             raw: true
+            //         }, {
+            //             text: t('DonateLinksDescription'),
+            //             classes: ["explanation"]
+            //         }, {
+            //             text: sep(),
+            //             raw: true
+            //         }, {
+            //             text: donate.replace(/REPLACEME/g, t('ClickToCopy')),
+            //             classes: ["desc-padding"]
+            //         }]
+            //     })
+            // }
+            ],
         })}
         ${multiPagePopup({
             name: "settings",
@@ -620,13 +622,15 @@ export default function(obj) {
                     type: "popup",
                     text: `${emoji("🐲" , 22)} ${t('AboutTab')}`,
                     aria: t('AccessibilityOpenAbout')
-                }, {
-                    name: "about",
-                    type: "popup",
-                    context: "donate",
-                    text: `${emoji("💖", 22)} ${t('Donate')}`,
-                    aria: t('AccessibilityOpenDonate')
-                }, {
+                }, 
+                // {
+                //     name: "about",
+                //     type: "popup",
+                //     context: "donate",
+                //     text: `${emoji("💖", 22)} ${t('Donate')}`,
+                //     aria: t('AccessibilityOpenDonate')
+                // }, 
+                {
                     name: "settings",
                     type: "popup",
                     text: `${emoji("⚙️", 22)} ${t('TitlePopupSettings')}`,

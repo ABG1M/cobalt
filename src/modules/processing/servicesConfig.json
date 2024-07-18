@@ -118,6 +118,12 @@
             "alias": "loom videos",
             "patterns": ["share/:id"],
             "enabled": true
+        },
+        "toutiao": {
+            "alias": "toutiao(今日头条) videos",
+            "altDomains": ["toutiao.com", "douyin.com","ixigua.com"],
+            "patterns": ["video/:id",":id"],
+            "enabled": true
         }
     }
 }

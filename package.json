@@ -13,7 +13,8 @@
         "setup": "node src/modules/setup",
         "test": "node src/util/test",
         "build": "node src/modules/buildStatic",
-        "token:youtube": "node src/util/generate-youtube-tokens"
+        "token:youtube": "node src/util/generate-youtube-tokens",
+        "start-vercel": "node app/index.js"
     },
     "repository": {
         "type": "git",
@@ -37,6 +38,7 @@
         "nanoid": "^4.0.2",
         "node-cache": "^5.1.2",
         "psl": "1.9.0",
+        "puppeteer": "^22.13.1",
         "set-cookie-parser": "2.6.0",
         "undici": "^5.19.1",
         "url-pattern": "1.0.3",

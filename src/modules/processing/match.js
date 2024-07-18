@@ -25,6 +25,7 @@ import twitch from "./services/twitch.js";
 import rutube from "./services/rutube.js";
 import dailymotion from "./services/dailymotion.js";
 import loom from "./services/loom.js";
+import toutiao from "./services/toutiao.js";
 
 let freebind;
 
@@ -193,6 +194,12 @@ export default async function(host, patternMatch, lang, obj) {
                     id: patternMatch.id
                 });
                 break;
+            case "toutiao":
+                r = await toutiao({
+                    id: patternMatch.id,
+                    host: host
+                });
+                break;
             default:
                 return createResponse("error", {
                     t: loc(lang, 'ErrorUnsupported')
@@ -221,7 +228,7 @@ export default async function(host, patternMatch, lang, obj) {
             obj.filenamePattern, obj.twitterGif,
             requestIP
         )
-    } catch {
+    } catch (e) {
         return createResponse("error", {
             t: loc(lang, 'ErrorBadFetch', host)
         })

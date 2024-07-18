@@ -37,7 +37,7 @@ export function createResponse(responseType, responseData) {
     try {
         let status = 200,
             response = {};
-        
+
         switch(responseType) {
             case "error":
                 status = 400;
@@ -84,9 +84,9 @@ export function createResponse(responseType, responseData) {
                     audio: audio
                 }
                 break;
-            case "critical": 
+            case "critical":
                 return internalError(responseData.t)
-            default: 
+            default:
                 throw "unreachable"
         }
         return {
@@ -96,7 +96,7 @@ export function createResponse(responseType, responseData) {
                 ...response
             }
         }
-    } catch {
+    } catch (e){
         return internalError()
     }
 }
@@ -117,7 +117,7 @@ export function normalizeRequest(request) {
             twitterGif: false,
             tiktokH265: false
         }
-    
+
         const requestKeys = Object.keys(request);
         const templateKeys = Object.keys(template);
 
