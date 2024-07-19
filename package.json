@@ -10,11 +10,13 @@
     },
     "scripts": {
         "start": "node src/cobalt",
+        "dev": "node src/cobaltVercel",
         "setup": "node src/modules/setup",
         "test": "node src/util/test",
         "build": "node src/modules/buildStatic",
         "token:youtube": "node src/util/generate-youtube-tokens",
-        "start-vercel": "node app/index.js"
+        "vercel-build": "node src/modules/buildVercel",
+        "vercel-start": "node api/index.js"
     },
     "repository": {
         "type": "git",

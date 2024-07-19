@@ -25,6 +25,7 @@ const internalStreamCache = {};
 const hmacSalt = randomBytes(64).toString('hex');
 
 export function createStream(obj) {
+    console.log(`ENV: ${JSON.stringify(env)}`)
     const streamID = nanoid(),
         iv = randomBytes(16).toString('base64url'),
         secret = randomBytes(32).toString('base64url'),
@@ -83,7 +84,7 @@ export function createInternalStream(url, obj = {}) {
     let controller = obj.controller;
 
     if (!controller) {
-        controller = new AbortController(); 
+        controller = new AbortController();
         setMaxListeners(Infinity, controller.signal);
     }
 
