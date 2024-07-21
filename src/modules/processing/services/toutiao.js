@@ -39,18 +39,17 @@ function getMimeTypeExtension(mimeType) {
   return mimeTypeMap[mimeType] || '.mp4';
 }
 
-let cookieStr = "ttwid=1%7Cs7Pjqk-hjSszoZj97ThWaIjqMtoLpIJ6ZULIZB88VG0%7C1721316728%7C76b8178440404855caaf49a8ece7d3081867b0c5d707acccb18b4928cdda4a2e; ";
+let cookieStr = "ttwid=1%7Cs7Pjqk-hjSszoZj97ThWaIjqMtoLpIJ6ZULIZB88VG0%7C1721316728%7C76b8178440404855caaf49a8ece7d3081867b0c5d707acccb18b4928cdda4a2e;";
 
 export default async function ({id, host}) {
   try {
-    const cookie = new Cookie({});
+    const cookie = Cookie.fromString(cookieStr);
     const res_1 = await fetch(`https://www.toutiao.com/video/${id}/`, {
       headers: {
         "user-agent": genericUserAgent,
         cookie,
       }
     })
-    const html1 = await res_1.text();
     updateCookie(cookie, res_1.headers);
 
     const res_2 = await fetch(`https://www.toutiao.com/ttwid/check/`, {
@@ -70,9 +69,8 @@ export default async function ({id, host}) {
       })
     })
 
-    let newVar = await res_2.json();
-    cookieStr = cookie.toString();
     updateCookie(cookie, res_2.headers);
+    cookieStr = cookie.toString();
 
     const res = await fetch(`https://www.toutiao.com/video/${id}/`, {
       headers: {
