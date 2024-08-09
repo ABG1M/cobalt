@@ -20,4 +20,4 @@ cookies.json
 # page build
 build
 .vercel
-.idea/cobalt-vercel.iml
+.idea
