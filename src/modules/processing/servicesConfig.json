@@ -114,15 +114,28 @@
             "patterns": ["video/:id"],
             "enabled": true
         },
+        "snapchat": {
+            "alias": "snapchat stories & spotlights",
+            "subdomains": ["t", "story"],
+            "patterns": [":shortLink", "spotlight/:spotlightId", "add/:username/:storyId", "u/:username/:storyId", "add/:username", "u/:username"],
+            "enabled": true
+        },
         "loom": {
             "alias": "loom videos",
             "patterns": ["share/:id"],
             "enabled": true
         },
-        "toutiao": {
-            "alias": "toutiao(今日头条) videos",
-            "altDomains": ["toutiao.com", "douyin.com","ixigua.com"],
-            "patterns": ["video/:id",":id"],
+        "facebook": {
+            "alias": "facebook videos",
+            "altDomains": ["fb.watch"],
+            "subdomains": ["web"],
+            "patterns": [
+                "_shortLink/:shortLink",
+                ":username/videos/:caption/:id",
+                ":username/videos/:id",
+                "reel/:id",
+                "share/:shareType/:id"
+            ],
             "enabled": true
         }
     }
